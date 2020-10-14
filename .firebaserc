@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "simple-stock-8a65b": {
+      "hosting": {
+        "simple-stock-web": [
+          "simple-stock-8a65b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "simple-stock-8a65b"
+  }
+}
