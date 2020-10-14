@@ -10,11 +10,19 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { StockListComponent } from './components/stock-list/stock-list.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
+import { ProdutoComponent } from './components/produto/produto.component';
+import { VendaComponent } from './components/venda/venda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    StockListComponent,
+    ClienteComponent,
+    ProdutoComponent,
+    VendaComponent
   ],
   imports: [
     BrowserModule,
