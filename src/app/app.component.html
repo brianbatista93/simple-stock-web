@@ -1,15 +1,15 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>Lu' Art</span>
-    <button class="main-button" mat-button>
+    <button class="main-button" mat-button (click)="goTo('vendas')">
       <mat-icon class="main-icon">shopping_cart</mat-icon>Vendas
     </button>
 
-    <button class="main-button" mat-button>
+    <button class="main-button" mat-button (click)="goTo('produtos')">
       <mat-icon class="main-icon">storefront</mat-icon>Produtos
     </button>
 
-    <button class="main-button" mat-button>
+    <button class="main-button" mat-button (click)="goTo('clientes')">
       <mat-icon class="main-icon">person</mat-icon>Clientes
     </button>
   </mat-toolbar-row>
