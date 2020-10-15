@@ -1,0 +1,20 @@
+<form [formGroup]="formCliente" class="form-content">
+    <mat-form-field class="flex-grow-4 form-field">
+        <input id="input_nome" required matInput id="form_nome_tela" required formControlName="nome" placeholder="Nome"
+            maxlength="120">
+        <mat-error id="error_nome" *ngIf="formCliente.get('nome').invalid">{{getErrorMessageNome()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="flex-grow-4 form-field">
+        <input id="input_tel" required matInput id="form_tel_tela" required formControlName="tel" placeholder="Telefone"
+            maxlength="15" [(ngModel)]="telefone" value="{{telefone | phone}}">
+        <mat-error id="error_nome" *ngIf="formCliente.get('tel').invalid">{{getErrorMessageNome()}}</mat-error>
+    </mat-form-field>
+    <mat-card-actions>
+        <div class="actions center">
+            <button type="submit" id="button_salvar" mat-button color="primary" [disabled]="!verificaForms()"
+                (click)="salvar()">SALVAR</button>
+            <button id="button_cancelar" mat-button color="primary" (click)="cancelar()">CANCELAR</button>
+        </div>
+    </mat-card-actions>
+</form>

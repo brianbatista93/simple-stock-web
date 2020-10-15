@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,14 @@ import { ClienteComponent } from './components/cliente/cliente.component';
 import { ProdutoComponent } from './components/produto/produto.component';
 import { VendaComponent } from './components/venda/venda.component';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ClienteDialogComponent } from './dialogs/cliente-dialog/cliente-dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { PhonePipe } from './pipes/phone.pipe';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,18 +34,30 @@ import { MatListModule } from '@angular/material/list';
     ClienteComponent,
     ProdutoComponent,
     VendaComponent,
+    ClienteDialogComponent,
+    PhonePipe,
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatListModule,
     MatToolbarModule,
+    HttpClientModule,
     MatIconModule,
     MatGridListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule
   ],
+  entryComponents: [ClienteDialogComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
