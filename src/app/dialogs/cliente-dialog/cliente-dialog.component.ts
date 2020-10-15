@@ -38,7 +38,7 @@ export class ClienteDialogComponent implements OnInit {
       "telefone": this.telefone
     }
 
-    this.rest.postRequestSign("clientes.json", request)
+    this.rest.postRequestSign("clientes/" + this.telefone, request)
       .subscribe((response: HttpResponse<any>) => {
         console.log(response);
         this.snackBar.open(`${request.nome} salvo com sucesso.`)

@@ -1,6 +1,6 @@
 <app-stock-list titulo="Clientes" (onClick)="addCliente()">
     <div class="card-table">
-        <mat-card *ngFor="let cliente of clientes | async; let i = index">
+        <mat-card matRipple *ngFor="let cliente of clientes | async; let i = index" (click)="selCliente(cliente.nome)">
             <mat-card-header>
                 <img mat-card-avatar src="https://picsum.photos/64/64?random={{i}}" />
                 <!--<button mat-card-avatar mat-mini-fab color="accent" (click)="deletaCliente(cliente)">

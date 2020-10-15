@@ -44,4 +44,8 @@ export class ClienteComponent implements OnInit {
     })
   }
 
+  public selCliente(i) {
+    console.log("Selecionou: " + i);
+  }
+
 }

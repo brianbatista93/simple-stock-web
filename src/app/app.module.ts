@@ -3,6 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
+import { MatRippleModule, MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -58,7 +59,8 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRippleModule
   ],
   entryComponents: [ClienteDialogComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
