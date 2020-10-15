@@ -1,4 +1,6 @@
 <form [formGroup]="formCliente" class="form-content">
+
+    <input type="file" accept="image/*" capture="environment">
     <mat-form-field class="flex-grow-4 form-field">
         <input id="input_nome" required matInput id="form_nome_tela" required formControlName="nome" placeholder="Nome"
             maxlength="120">
