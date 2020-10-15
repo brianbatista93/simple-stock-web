@@ -3,6 +3,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Cliente } from 'src/app/models/cliente';
 import { RestService } from 'src/app/services/rest.service';
 
@@ -20,6 +21,7 @@ export class ClienteDialogComponent implements OnInit {
     private fb: FormBuilder,
     private rest: RestService,
     public dialogRef: MatDialogRef<ClienteDialogComponent>,
+    private snackBar: MatSnackBar
   ) {
     this.formCliente = fb.group({
       "nome": new FormControl("", [Validators.required, Validators.maxLength(120)]),
@@ -36,12 +38,14 @@ export class ClienteDialogComponent implements OnInit {
       "telefone": this.telefone
     }
 
-    return;
     this.rest.postRequestSign("clientes.json", request)
       .subscribe((response: HttpResponse<any>) => {
-        console.log(response)
+        console.log(response);
+        this.snackBar.open(`${request.nome} salvo com sucesso.`)
+        this.dialogRef.close();
       }, (error: HttpResponse<any>) => {
-        console.error(error)
+        console.error(error);
+        this.snackBar.open(`Erro ao salvar ${request.nome}.`)
       })
   }
 

@@ -24,6 +24,8 @@ import { MatInputModule } from '@angular/material/input';
 import { PhonePipe } from './pipes/phone.pipe';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -55,7 +57,8 @@ import { environment } from 'src/environments/environment';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule
+    AngularFireModule,
+    MatSnackBarModule
   ],
   entryComponents: [ClienteDialogComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
