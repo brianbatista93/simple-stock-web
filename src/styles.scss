@@ -47,4 +47,38 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     @include mat-elevation(1);
     margin-top: 32px;
     overflow-x: auto;
-  }
+}
+
+.form-content {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-row {
+  display: initial;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.form-group {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  width: 100%;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+// used for flex box layout
+.center {
+  justify-content: center;
+}
