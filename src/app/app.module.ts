@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { StockListComponent } from './components/stock-list/stock-list.component
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { ProdutoComponent } from './components/produto/produto.component';
 import { VendaComponent } from './components/venda/venda.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -22,18 +23,20 @@ import { VendaComponent } from './components/venda/venda.component';
     StockListComponent,
     ClienteComponent,
     ProdutoComponent,
-    VendaComponent
+    VendaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatListModule,
     MatToolbarModule,
     MatIconModule,
     MatGridListModule,
     MatCardModule,
     MatButtonModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

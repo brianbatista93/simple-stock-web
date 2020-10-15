@@ -1,2 +1,14 @@
 <app-stock-list titulo="Clientes">
+    <div class="card-table">
+        <mat-card *ngFor="let cliente of clientes">
+            <mat-card-header>
+                <mat-card-title>
+                    {{cliente.nome}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{cliente.telefone}}
+                </mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>
+    </div>
 </app-stock-list>
