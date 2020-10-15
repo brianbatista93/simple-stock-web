@@ -3,6 +3,11 @@
         <mat-toolbar color="primary">
             <span>{{titulo}}</span>
             <span class="fill-remaining-space"></span>
+            <div style="text-align: right">
+                <button mat-button color="Accent" (click)="clicked()">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
         </mat-toolbar>
         <ng-content></ng-content>
     </div>
