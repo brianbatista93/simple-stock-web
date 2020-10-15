@@ -42,11 +42,12 @@ export class ClienteDialogComponent implements OnInit {
       .subscribe((response: HttpResponse<any>) => {
         console.log(response);
         this.snackBar.open(`${request.nome} salvo com sucesso.`)
-        this.dialogRef.close();
       }, (error: HttpResponse<any>) => {
         console.error(error);
         this.snackBar.open(`Erro ao salvar ${request.nome}.`)
-      })
+      });
+
+    this.dialogRef.close();
   }
 
   public cancelar() { this.dialogRef.close("Cadastro de cliente cancelado"); }
