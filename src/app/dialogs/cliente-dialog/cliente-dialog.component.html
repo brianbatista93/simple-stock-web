@@ -1,17 +1,87 @@
-<form [formGroup]="formCliente" class="form-content">
+<form [formGroup]="formCliente" class="end-form">
 
     <!--<input type="file" accept="image/*" capture="environment">-->
-    <mat-form-field class="flex-grow-4 form-field">
+    <mat-form-field end-full-width class="flex-grow-4 form-field end-full-width">
         <input id="input_nome" required matInput id="form_nome_tela" required formControlName="nome" placeholder="Nome"
             maxlength="120">
         <mat-error id="error_nome" *ngIf="formCliente.get('nome').invalid">{{getErrorMessageNome()}}</mat-error>
     </mat-form-field>
 
-    <mat-form-field class="flex-grow-4 form-field">
+    <mat-form-field end-full-width class="flex-grow-4 form-field end-full-width">
         <input id="input_tel" required matInput id="form_tel_tela" required formControlName="tel" placeholder="Telefone"
             maxlength="15" [(ngModel)]="telefone" value="{{telefone | phone}}">
         <mat-error id="error_nome" *ngIf="formCliente.get('tel').invalid">{{getErrorMessageNome()}}</mat-error>
     </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <div>
+        <mat-form-field end-full-width class="flex-grow-4 form-field end-full-width">
+            <input id="input_cep" required matInput id="form_cep_tela" required formControlName="cep" placeholder="CEP"
+                maxlength="8" (blur)="buscaCEP()">
+            <mat-error id="error_cep" *ngIf="formCliente.get('cep').invalid">{{getErrorMessageNome()}}</mat-error>
+        </mat-form-field>
+
+        <table class="end-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field end-full-width class="flex-grow-4 form-field end-full-width">
+                        <input id="input_logadouro" required matInput id="form_logradouro_tela" required
+                            formControlName="logradouro" placeholder="Logradouro">
+                        <mat-error id="error_logradouro" *ngIf="formCliente.get('logradouro').invalid">
+                            {{getErrorMessageNome()}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field style="width: 30%;" end-full-width class="flex-grow-4 form-field end-full-width">
+                        <input id="input_numero" required matInput id="form_numero_tela" required
+                            formControlName="numero" placeholder="Numero">
+                        <mat-error id="error_numero" *ngIf="formCliente.get('numero').invalid">{{getErrorMessageNome()}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+
+        <mat-form-field end-full-width class="flex-grow-4 form-field end-full-width">
+            <input id="input_complemento" required matInput id="form_complemento_tela" required
+                formControlName="complemento" placeholder="Complemento">
+            <mat-error id="error_complemento" *ngIf="formCliente.get('complemento').invalid">{{getErrorMessageNome()}}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field end-full-width class="flex-grow-4 form-field end-full-width">
+            <input id="input_bairro" required matInput id="form_bairro_tela" required formControlName="bairro"
+                placeholder="Bairro">
+            <mat-error id="error_bairro" *ngIf="formCliente.get('bairro').invalid">{{getErrorMessageNome()}}
+            </mat-error>
+        </mat-form-field>
+
+        <table class="end-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field end-full-width class="flex-grow-4 form-field end-full-width">
+                        <input id="input_localidade" required matInput id="form_localidade_tela" required
+                            formControlName="localidade" placeholder="Localidade">
+                        <mat-error id="error_localidade" *ngIf="formCliente.get('localidade').invalid">
+                            {{getErrorMessageNome()}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field style="align-self: left; width: 30%;" end-full-width
+                        class="flex-grow-4 form-field end-full-width">
+                        <input id="input_uf" required matInput id="form_uf_tela" required formControlName="uf"
+                            placeholder="UF">
+                        <mat-error id="error_uf" *ngIf="formCliente.get('uf').invalid">{{getErrorMessageNome()}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <mat-card-actions>
         <div class="actions center">
             <button type="submit" id="button_salvar" mat-button color="primary" [disabled]="!verificaForms()"
