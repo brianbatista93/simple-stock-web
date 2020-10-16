@@ -31,7 +31,12 @@ export class ClienteDialogComponent implements OnInit {
       "nome": new FormControl("", [Validators.required, Validators.maxLength(120)]),
       "tel": new FormControl("", [Validators.required, Validators.minLength(14), Validators.maxLength(15)]),
       "cep": new FormControl("", [Validators.required, Validators.maxLength(8)]),
-      "logradouro": new FormControl("", [Validators.required])
+      "logradouro": new FormControl("", [Validators.required]),
+      "numero": new FormControl("", [Validators.required]),
+      "bairro": new FormControl("", [Validators.required]),
+      "complemento": new FormControl("", [Validators.required]),
+      "localidade": new FormControl("", [Validators.required]),
+      "uf": new FormControl("", [Validators.required])
     });
   }
 
@@ -43,9 +48,12 @@ export class ClienteDialogComponent implements OnInit {
     if (cep.length == 0)
       return;
 
-    this.http.get(`http://cep.la/${cep}`, RestService.HEADERS_SIGN).subscribe(
+    this.http.get(`https://viacep.com.br/ws/${cep}/json/`, RestService.HEADER_PURE_JSON).subscribe(
       (result) => {
-        this.formCliente.setValue({ logradouro: result["logradouro"] });
+        this.formCliente.get("logradouro").setValue(result["logradouro"]);
+        this.formCliente.get("localidade").setValue(result["localidade"]);
+        this.formCliente.get("bairro").setValue(result["bairro"]);
+        this.formCliente.get("uf").setValue(result["uf"]);
       }, (error) => {
 
       }
@@ -55,7 +63,15 @@ export class ClienteDialogComponent implements OnInit {
   public salvar() {
     const request = {
       "nome": this.formCliente.get("nome").value,
-      "telefone": new PhonePipe().removePipe(this.telefone)
+      "telefone": new PhonePipe().removePipe(this.telefone),
+      "endereco": {
+        "cep": this.formCliente.get("cep").value,
+        "logradouro": this.formCliente.get("logradouro").value,
+        "numero": this.formCliente.get("numero").value,
+        "complemento": this.formCliente.get("complemento").value,
+        "localidade": this.formCliente.get("localidade").value,
+        "uf": this.formCliente.get("uf").value
+      }
     }
 
     this.db.collection("clientes").add(request).then((docRef) => {

@@ -12,11 +12,16 @@ export class RestService {
     private httpClient: HttpClient
   ) { }
 
+  public static HEADER_PURE_JSON = {
+    headers: new HttpHeaders({
+      "Accept": "application/json"
+    })
+  };
+
   public static HEADERS_SIGN = {
     headers: new HttpHeaders({
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "Accept": "application/json"
     })
   };
 
