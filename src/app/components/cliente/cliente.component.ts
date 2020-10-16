@@ -15,20 +15,13 @@ export class ClienteComponent implements OnInit {
 
   clientes: Observable<Cliente[]>;
 
-  /*public clientes: Cliente[] = [
-    { nome: 'Brenda Fedida', telefone: '(34) 9 9231-2010' },
-    { nome: 'Brian Lindo', telefone: '(34) 9 9217-7207' },
-    { nome: 'Ximix Belui', telefone: '(au) a auau-auau' },
-    { nome: 'Bels Celsius', telefone: '(au) a auau-auau' }
-  ];*/
-
   private dialogRef: MatDialogRef<ClienteDialogComponent>;
 
   constructor(
     private dialog: MatDialog,
-    private db: AngularFireDatabase
+    private db: AngularFirestore
   ) {
-    this.clientes = this.db.list<Cliente>("clientes").valueChanges();
+    this.clientes = this.db.collection<Cliente>("clientes").valueChanges();
   }
 
   ngOnInit(): void {

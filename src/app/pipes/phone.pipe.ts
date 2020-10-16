@@ -5,8 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PhonePipe implements PipeTransform {
 
+  public removePipe(value: string) {
+    return value.replace(/\D+/g, '');
+  }
+
   transform(value: string, ...args: unknown[]): string {
-    let ret = value.replace(/\D+/g, '');
+    let ret = this.removePipe(value);
     if (ret == null || ret.length == 0) {
       ret = ""
     } else if (ret.length <= 2) {

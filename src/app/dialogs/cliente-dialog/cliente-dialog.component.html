@@ -12,6 +12,24 @@
             maxlength="15" [(ngModel)]="telefone" value="{{telefone | phone}}">
         <mat-error id="error_nome" *ngIf="formCliente.get('tel').invalid">{{getErrorMessageNome()}}</mat-error>
     </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <div>
+        <mat-form-field class="flex-grow-4 form-field">
+            <input id="input_cep" required matInput id="form_cep_tela" required formControlName="cep" placeholder="CEP"
+                maxlength="8" (blur)="buscaCEP()">
+            <mat-error id="error_cep" *ngIf="formCliente.get('cep').invalid">{{getErrorMessageNome()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="flex-grow-4 form-field">
+            <input id="input_logadouro" required matInput id="form_logadouro_tela" required formControlName="logradouro"
+                placeholder="Logradouro" maxlength="8">
+            <mat-error id="error_logadouro" *ngIf="formCliente.get('logradouro').invalid">{{getErrorMessageNome()}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
     <mat-card-actions>
         <div class="actions center">
             <button type="submit" id="button_salvar" mat-button color="primary" [disabled]="!verificaForms()"

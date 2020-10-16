@@ -28,6 +28,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { environment } from 'src/environments/environment';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { environment } from 'src/environments/environment';
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     AngularFireDatabaseModule,
     BrowserModule,
     AppRoutingModule,
