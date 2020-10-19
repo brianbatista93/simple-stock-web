@@ -1,6 +1,9 @@
 <form [formGroup]="formCliente" class="end-form">
 
-    <!--<input type="file" accept="image/*" capture="environment">-->
+    <button mat-fab (click)="fotoInput.click()">
+        <mat-icon>add_a_photo</mat-icon>
+        <input hidden type="file" accept="image/*" capture="environment" #fotoInput>
+    </button>
     <mat-form-field end-full-width class="flex-grow-4 form-field end-full-width">
         <input id="input_nome" required matInput id="form_nome_tela" required formControlName="nome" placeholder="Nome"
             maxlength="120">
